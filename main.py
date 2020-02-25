@@ -20,7 +20,7 @@ def sign_up():
         login = input()
         print("Enter your password: ")
         password = input()
-        User user = new User(login,password)
+        user = User(login,password) 
         
         
 def sign_in():
