@@ -30,6 +30,7 @@ def send_res(user):
             if i[1]['score'] < user.score:
                 i[1]['score'] = user.score
                 i[1]['total'] = user.total
+                print("You got a new highscore!\n{}".format(user.score))
             newUser = False
             break
     if newUser:
