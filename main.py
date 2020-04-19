@@ -5,21 +5,31 @@ from User import *
 
         
 
+gameover = False
 
-name = input("Enter your username: ")
-user = User(name)
+while not gameover:
+    print('\t\t\t1.Start quiz\n\t\t\t2.Add a question\n\t\t\t3.Exit')
+    ch = int(input())
+    if ch == 1:
+        user = User()
+        if user_exists(user):
+            print("Your previous highscore:",get_highscore(user))
+        else:
+            new_user(user)
+        questions = get_questions()
+        answer_questions(user,questions)
+        send_res(user)
+        gameover = True
 
-questions = get_questions()
-random.shuffle(questions)
+    elif ch == 2:
+        add_question()
+    elif ch == 3:
+        gameover = True
 
-for i in questions:
-    print(i[1]['question'])
-    ans = input()
-    if(ans.lower() == i[1]['answer'].lower()):
-        user.total+=1
-        user.score+=20
 
-send_res(user)
+
+
+
 
 
     
